@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生活基础课 - 家庭急救防灾指南</title>
+    <title>生活基础课 | jichuke.cn</title>
     <style>
         * {
             margin: 0;
@@ -161,7 +161,7 @@
         }
         
         .card-title {
-            font-size: 1.1rem;
+            font-size: 1.3rem; /* 增大卡片标题字体 */
             margin-bottom: 6px;
             font-weight: 600;
             margin-left: 0;
@@ -170,7 +170,15 @@
             -webkit-line-clamp: 2; /* 标题最多显示2行 */
             -webkit-box-orient: vertical;
             overflow: hidden;
-            min-height: 2.2rem; /* 确保标题区域高度一致 */
+            min-height: 2.6rem; /* 调整标题区域高度 */
+        }
+        
+        /* 视频来源标题样式 */
+        .link-group-title {
+            font-size: 0.8rem; /* 缩小视频来源文字 */
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: normal;
         }
         
         /* 标题保持靠左显示，前面不留空 */
@@ -204,14 +212,7 @@
         }
         
         .link-group {
-            margin-bottom: 12px;
-        }
-        
-        .link-group-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #333;
+            margin-bottom: 8px;
         }
         
         .link-items {
@@ -287,6 +288,13 @@
         .self-media-content {
             flex: 1;
             min-width: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .left-content {
+            flex: 1;
         }
         
         .self-media-title {
@@ -306,7 +314,6 @@
         .platform-links {
             display: flex;
             gap: 10px;
-            margin-top: 12px;
             flex-wrap: wrap;
         }
         
@@ -314,9 +321,8 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            flex-shrink: 0;
+            flex-wrap: nowrap;
         }
         
         .qrcode {
@@ -476,6 +482,31 @@
                 padding: 15px;
             }
             
+            .self-media-content {
+                flex-direction: column;
+            }
+            
+            .left-content {
+                margin-bottom: 15px;
+            }
+            
+            /* 移动设备上二维码和文字的自适应样式 */
+            .qrcode-section {
+                flex-wrap: wrap; /* 在移动设备上允许换行 */
+                justify-content: center; /* 居中对齐 */
+            }
+            
+            .qrcode-section .qrcode {
+                margin-bottom: 10px; /* 换行时添加底部间距 */
+                width: 100px; /* 缩小移动设备上的二维码 */
+                height: 100px;
+            }
+            
+            .qrcode-section .qrcode-text {
+                text-align: center; /* 移动设备上文字居中 */
+                width: 100%; /* 文字占据整个宽度 */
+            }
+            
             .self-media-img {
                 margin-left: 0;
                 margin-top: 15px;
@@ -501,7 +532,7 @@
             }
             
             .card-title {
-                font-size: 1rem; /* 适当缩小移动设备上的标题字体 */
+                font-size: 1.2rem; /* 增大移动设备上的标题字体 */
                 margin-left: 0;
                 text-indent: 0;
             }
@@ -600,13 +631,7 @@
         
 
         
-        /* 弱化视频来源样式 */
-        .link-group:has(.video-source) .link-group-title {
-            font-size: 0.8rem;
-            font-weight: normal;
-            color: #777;
-        }
-        
+        /* 视频来源样式 */
         .link-group:has(.video-source) .link-item {
             background: #f5f7fa;
             color: #777;
@@ -627,9 +652,9 @@
     <header id="top">
         <div class="container">
             <div class="logo">生活基础课</div>
-            <div class="tagline">家庭急救防灾指南 · 生命安全技能库</div>
+            <div class="tagline">jichuke.cn</div>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="搜索急救技能、防灾知识...">
+                <input type="text" id="searchInput" placeholder="搜索生活小常识...">
                 <button id="searchButton">搜索</button>
             </div>
         </div>
@@ -671,7 +696,6 @@
                         <div class="card-desc">正确的烧烫伤急救方法，避免常见错误处理方式导致的二次伤害。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同程度处理方法：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">一度烧烫伤</a>
                                     <a href="#" class="link-item">二度烧烫伤</a>
@@ -700,7 +724,6 @@
                         <div class="card-desc">不同部位出血的正确止血与包扎方法。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同出血类型：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">动脉出血</a>
                                     <a href="#" class="link-item">静脉出血</a>
@@ -729,7 +752,6 @@
                         <div class="card-desc">夏季高发疾病急救指南，如何快速识别中暑症状并采取正确措施。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同类型处理方法：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">轻度中暑</a>
                                     <a href="#" class="link-item">热衰竭</a>
@@ -763,7 +785,6 @@
                         <div class="card-desc">地震发生时如何利用黄金12秒采取正确避险措施，提高生存几率。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同场景避险方法：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">室内避险</a>
                                     <a href="#" class="link-item">室外避险</a>
@@ -791,7 +812,6 @@
                         <div class="card-desc">台风季节如何做好家庭防护，储备必要物资，确保家人安全。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">防护准备工作：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">家庭防护</a>
                                     <a href="#" class="link-item">物资储备</a>
@@ -819,7 +839,6 @@
                         <div class="card-desc">遭遇洪水时如何正确选择逃生路线，制作简易救生工具，等待救援。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同情况逃生方法：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">城市洪水</a>
                                     <a href="#" class="link-item">山区洪水</a>
@@ -852,7 +871,6 @@
                         <div class="card-desc">常见传染病的传播途径与预防措施，建立个人健康防护屏障。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">预防措施：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">呼吸道传染病</a>
                                     <a href="#" class="link-item">消化道传染病</a>
@@ -880,7 +898,6 @@
                         <div class="card-desc">如何辨别食品安全，食物中毒的识别方法与紧急处理步骤。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">不同类型处理：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">食物中毒识别</a>
                                     <a href="#" class="link-item">细菌性中毒</a>
@@ -908,7 +925,6 @@
                         <div class="card-desc">家庭日常消毒的正确方法，培养良好卫生习惯预防疾病。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">消毒方法：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">手部消毒</a>
                                     <a href="#" class="link-item">物品表面消毒</a>
@@ -941,7 +957,6 @@
                         <div class="card-desc">户外徒步登山前的准备事项，途中风险识别与应对方法。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">安全注意事项：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">行前准备</a>
                                     <a href="#" class="link-item">路线规划</a>
@@ -969,7 +984,6 @@
                         <div class="card-desc">迷失野外时的生存技巧，寻找水源、搭建庇护所、发出求救信号。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">求生技能：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">寻找水源</a>
                                     <a href="#" class="link-item">搭建庇护所</a>
@@ -997,7 +1011,6 @@
                         <div class="card-desc">游泳、划船等水域活动的安全注意事项与溺水救援方法。</div>
                         <div class="card-links">
                             <div class="link-group">
-                                <div class="link-group-title">安全与救援：</div>
                                 <div class="link-items">
                                     <a href="#" class="link-item">游泳安全</a>
                                     <a href="#" class="link-item">溺水救援</a>
@@ -1022,19 +1035,21 @@
         
         <section class="self-media">
             <div class="self-media-content">
-                <h2 class="self-media-title">还可以在这些地方找到我</h2>
-                <p class="self-media-desc">我们专注于生命安全技能教学，教你如何系统学习急救、防灾避险等关键技能。</p>
-                <div class="platform-links">
-                    <a href="#" class="platform-link"><i>🧣</i> 微博</a>
-                    <a href="#" class="platform-link"><i>🎵</i> 抖音</a>
-                    <a href="#" class="platform-link"><i>📕</i> 小红书</a>
-                    <a href="#" class="platform-link"><i>📹</i> B站</a>
+                <div class="left-content">
+                    <h2 class="self-media-title">还可以在这些地方找到我</h2>
+                    <p class="self-media-desc">分享更多生活小常识、生活小窍门、生活小妙招的视频。</p>
+                    <div class="platform-links">
+                        <a href="#" class="platform-link"><i>🧣</i> 微博</a>
+                        <a href="#" class="platform-link"><i>🎵</i> 抖音</a>
+                        <a href="#" class="platform-link"><i>📕</i> 小红书</a>
+                        <a href="#" class="platform-link"><i>📹</i> B站</a>
+                    </div>
                 </div>
                 <div class="qrcode-section">
                     <div class="qrcode">
                         <div class="qrcode-placeholder">📱 公众号二维码</div>
                     </div>
-                    <p class="qrcode-text">扫码关注公众号，获取更多急救知识</p>
+                    <p class="qrcode-text">扫码关注公众号，第一时间获取最新内容。</p>
                 </div>
             </div>
         </section>
@@ -1043,8 +1058,8 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>生活基础课 - 家庭急救防灾指南</h3>
-                <p>专注于生命安全技能普及，提升公众急救、防灾避险与自救互救能力。</p>
+                <h3>生活基础课</h3>
+                <p>分享一些学校没学的生活小常识、生活小窍门、生活小妙招等。</p>
             </div>
             <ul class="footer-links">
                 <li><a href="#top">全部</a></li>
@@ -1055,7 +1070,7 @@
                 <li><a href="#outdoor">户外安全</a></li>
             </ul>
             <div class="copyright">
-                <p>© 2023 生活基础课 | 本站内容来源于权威媒体，版权归原作者所有</p>
+                <p>© 2025 生活基础课 | jichuke.cn </p>
             </div>
         </div>
     </footer>
