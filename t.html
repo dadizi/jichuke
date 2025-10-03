@@ -177,8 +177,8 @@
         .link-group-title {
             font-size: 0.8rem; /* 缩小视频来源文字 */
             color: #666;
-            margin-bottom: 4px;
             font-weight: normal;
+            white-space: nowrap;
         }
         
         /* 标题保持靠左显示，前面不留空 */
@@ -213,6 +213,18 @@
         
         .link-group {
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        /* 视频来源标题特殊样式 */
+        .link-group:has(.link-group-title) {
+            gap: 8px;
+            padding-top: 8px;
+            margin-top: 8px;
+            border-top: 1px solid #eee;
         }
         
         .link-items {
@@ -301,7 +313,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #1a73e8;
+            color: #7a7d7f;
         }
         
         .self-media-desc {
@@ -521,6 +533,34 @@
                 margin-bottom: 25px;
             }
             
+            /* 移动设备上视频来源样式保持同一行 */
+            .link-group {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            /* 移动设备上视频来源组的分隔线样式 */
+            .link-group:has(.link-group-title) {
+                padding-top: 6px;
+                margin-top: 6px;
+                border-top: 1px solid #eee;
+            }
+            
+            .link-group-title {
+                font-size: 0.75rem;
+            }
+            
+            .link-items {
+                gap: 4px;
+            }
+            
+            .link-item {
+                font-size: 0.85rem;
+                padding: 4px 10px;
+            }
+            
             .card {
                 padding: 12px;
                 min-height: 220px; /* 移动设备上的最小高度 */
@@ -654,7 +694,7 @@
             <div class="logo">生活基础课</div>
             <div class="tagline">jichuke.cn</div>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="搜索生活小常识...">
+                <input type="text" id="searchInput" placeholder="搜索急救防灾知识｜生活小常识...">
                 <button id="searchButton">搜索</button>
             </div>
         </div>
@@ -1036,8 +1076,8 @@
         <section class="self-media">
             <div class="self-media-content">
                 <div class="left-content">
-                    <h2 class="self-media-title">还可以在这些地方找到我</h2>
-                    <p class="self-media-desc">分享更多生活小常识、生活小窍门、生活小妙招的视频。</p>
+                    <h2 class="self-media-title">这些地方也能找到我</h2>
+                    <p class="self-media-desc">有更多生活小常识、生活小窍门、生活小妙招的视频。</p>
                     <div class="platform-links">
                         <a href="#" class="platform-link"><i>🧣</i> 微博</a>
                         <a href="#" class="platform-link"><i>🎵</i> 抖音</a>
@@ -1059,7 +1099,7 @@
         <div class="container">
             <div class="footer-content">
                 <h3>生活基础课</h3>
-                <p>分享一些学校没学的生活小常识、生活小窍门、生活小妙招等。</p>
+                <p>分享一些生活小常识｜生活小窍门｜生活小妙招等</p>
             </div>
             <ul class="footer-links">
                 <li><a href="#top">全部</a></li>
