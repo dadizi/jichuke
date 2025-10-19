@@ -953,7 +953,7 @@
     </footer>
 
     <!-- 优化后的回到顶部按钮 -->
-    <div id="backToTopButton" onclick="window.scrollTo({top:0,behavior:'smooth'});" style="position:fixed;bottom:164px;right:15px;width:48px;height:48px;background:#f8f9fa;color:#666;font-size:20px;font-weight:bold;text-align:center;line-height:48px;border-radius:50%;cursor:pointer;z-index:999999;opacity:1;visibility:visible;box-shadow:0 3px 12px rgba(0,0,0,0.15);border:1px solid #e9ecef;transition:all 0.3s ease;">↑</div>
+    <div id="backToTopButton" onclick="window.scrollTo({top:0,behavior:'smooth'});" style="position:fixed;bottom:164px;right:15px;width:48px;height:48px;background:#f8f9fa;color:#666;font-size:20px;font-weight:bold;text-align:center;line-height:48px;border-radius:50%;cursor:pointer;z-index:999999;opacity:0;visibility:hidden;box-shadow:0 3px 12px rgba(0,0,0,0.15);border:1px solid #e9ecef;transition:all 0.3s ease;">↑</div>
 
     <script>
         // 平滑滚动导航功能
@@ -1154,6 +1154,26 @@
                     }
                 });
             });
+            
+            // 回到顶部按钮滚动显示/隐藏功能
+            const backToTopButton = document.getElementById('backToTopButton');
+            
+            function toggleBackToTopButton() {
+                // 当页面滚动超过300px时显示按钮，否则隐藏
+                if (window.scrollY > 300) {
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.visibility = 'visible';
+                } else {
+                    backToTopButton.style.opacity = '0';
+                    backToTopButton.style.visibility = 'hidden';
+                }
+            }
+            
+            // 初始调用一次
+            toggleBackToTopButton();
+            
+            // 添加滚动事件监听
+            window.addEventListener('scroll', toggleBackToTopButton);
         });
     </script>
 </body>
